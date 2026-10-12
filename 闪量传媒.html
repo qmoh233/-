@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171a16">
+    <meta name="description" content="苏州闪量互动文化传媒有限公司，为江浙沪实体店老板与个人 IP 创业者提供抖音账号定位、策划、拍摄、剪辑与运营复盘全链路服务。">
+    <title>苏州闪量传媒｜让好生意，被更多人看见</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --ink: #171a16;
+            --paper: #f2f0e8;
+            --muted: #a6aaa0;
+            --line: rgba(242, 240, 232, .16);
+            --lime: #d7fa56;
+            --coral: #ff765e;
+            --blue: #a8c9ff;
+            --mono: 'DM Mono', 'Courier New', monospace;
+            --sans: 'Manrope', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+        button, input, textarea { font: inherit; }
+        button, a { -webkit-tap-highlight-color: transparent; }
+        ::selection { background: var(--lime); color: var(--ink); }
+        .shell { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
+        .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--lime); font: 11px var(--mono); letter-spacing: 0; text-transform: uppercase; }
+        .eyebrow::before { content: ''; width: 7px; height: 7px; background: currentColor; border-radius: 50%; }
+        .topbar { position: absolute; z-index: 5; inset: 0 0 auto; border-bottom: 1px solid var(--line); }
+        .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+        .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .brand-mark { position: relative; width: 35px; height: 35px; display: grid; place-items: center; color: var(--ink); background: var(--lime); font-size: 19px; font-weight: 800; transform: rotate(-5deg); }
+        .brand-mark::after { content: ''; position: absolute; inset: 4px -4px -4px 4px; z-index: -1; border: 1px solid var(--lime); }
+        .brand-name { font-size: 15px; font-weight: 800; letter-spacing: 0; }
+        .brand-sub { margin-top: 3px; color: var(--muted); font: 9px var(--mono); letter-spacing: 0; }
+        .nav-links { display: flex; align-items: center; gap: 34px; color: #dadbd5; font-size: 12px; }
+        .nav-links a:not(.nav-cta):hover { color: var(--lime); }
+        .nav-cta { display: inline-flex; align-items: center; gap: 16px; padding: 12px 15px; color: var(--ink); background: var(--lime); font-size: 12px; font-weight: 800; }
+        .nav-cta span { font-size: 16px; line-height: 1; }
+        .menu-toggle { display: none; width: 42px; height: 42px; color: var(--paper); background: transparent; border: 1px solid var(--line); cursor: pointer; }
+        .hero { min-height: 760px; position: relative; overflow: hidden; padding: 170px 0 72px; background-image: radial-gradient(ellipse at 7% 16%, rgba(78, 92, 63, .19), transparent 29%), linear-gradient(110deg, #171a16 0%, #171a16 49%, #20251d 100%); }
+        .hero::after { position: absolute; right: -90px; bottom: 38px; content: 'SHAN LIANG / SUZHOU'; color: rgba(242, 240, 232, .035); font: 92px var(--mono); white-space: nowrap; pointer-events: none; }
+        .hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 58px; position: relative; z-index: 1; }
+        .hero-copy { padding-bottom: 15px; }
+        h1 { max-width: 660px; margin: 25px 0 19px; font-size: clamp(44px, 5.35vw, 72px); line-height: 1.12; letter-spacing: 0; font-weight: 700; }
+        h1 em { color: var(--lime); font-style: normal; }
+        .hero-lead { max-width: 465px; color: #bfc2b9; font-size: 15px; line-height: 1.95; }
+        .hero-actions { display: flex; align-items: center; gap: 25px; margin-top: 33px; }
+        .button-primary { min-height: 51px; display: inline-flex; align-items: center; justify-content: center; gap: 26px; padding: 0 19px; color: var(--ink); background: var(--lime); font-size: 12px; font-weight: 800; transition: transform .2s ease, background .2s ease; }
+        .button-primary:hover { transform: translateY(-3px); background: #e4ff7a; }
+        .button-primary span { font-size: 17px; }
+        .text-link { color: #d3d5cd; font-size: 12px; }
+        .text-link span { margin-left: 9px; color: var(--coral); }
+        .hero-note { display: flex; align-items: center; gap: 13px; margin-top: 53px; color: var(--muted); font-size: 11px; }
+        .note-rule { width: 34px; height: 1px; background: var(--coral); }
+        .visual { height: 493px; position: relative; margin: 0 0 0 auto; width: min(100%, 510px); }
+        .visual-photo { position: absolute; inset: 0 20px 22px 20px; overflow: hidden; background: #3b4135; }
+        .visual-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% center; filter: saturate(.72); }
+        .visual-photo::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, rgba(15, 17, 14, .08), rgba(15, 17, 14, .08) 43%, rgba(15, 17, 14, .55)); }
+        .photo-caption { position: absolute; inset: auto 18px 17px; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: white; font: 10px var(--mono); }
+        .recording { display: inline-flex; align-items: center; gap: 7px; }
+        .recording::before { width: 7px; height: 7px; content: ''; background: var(--coral); border-radius: 50%; box-shadow: 0 0 12px var(--coral); }
+        .visual-index { position: absolute; top: 23px; right: 0; width: 120px; padding: 15px 14px; color: var(--ink); background: var(--lime); }
+        .visual-index b { display: block; font-size: 23px; line-height: 1.1; }
+        .visual-index span { display: block; margin-top: 5px; font: 9px var(--mono); }
+        .visual-sticker { position: absolute; left: -11px; bottom: 0; width: 139px; height: 139px; display: grid; place-content: center; gap: 3px; padding: 17px; color: var(--ink); background: var(--coral); transform: rotate(-7deg); }
+        .visual-sticker strong { font-size: 17px; line-height: 1.4; }
+        .visual-sticker span { font: 9px var(--mono); }
+        .visual-bracket { position: absolute; inset: -11px 9px 32px 9px; border: 1px solid rgba(242, 240, 232, .23); pointer-events: none; }
+        .hero-meta { position: absolute; right: 0; bottom: 4px; color: var(--muted); font: 9px var(--mono); writing-mode: vertical-rl; }
+        .ticker { overflow: hidden; color: var(--ink); background: var(--lime); }
+        .ticker-track { min-height: 52px; display: flex; align-items: center; justify-content: space-around; gap: 28px; white-space: nowrap; font-size: 11px; font-weight: 800; }
+        .ticker-track span:nth-child(even) { color: #738d14; font: 14px var(--mono); }
+        section { scroll-margin-top: 22px; }
+        .section-pad { padding: 112px 0; }
+        .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 50px; }
+        h2 { margin: 16px 0 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.2; letter-spacing: 0; font-weight: 700; }
+        h2 em { color: var(--lime); font-style: normal; }
+        .section-intro { max-width: 345px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+        .services { color: var(--ink); background: var(--paper); }
+        .services .eyebrow { color: #526a18; }
+        .services .section-intro { color: #70736b; }
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(23, 26, 22, .18); border-left: 1px solid rgba(23, 26, 22, .18); }
+        .service { min-height: 233px; padding: 25px 26px 23px; border-right: 1px solid rgba(23, 26, 22, .18); border-bottom: 1px solid rgba(23, 26, 22, .18); transition: background .2s ease; }
+        .service:hover { background: #e8e9dd; }
+        .service-top { display: flex; align-items: center; justify-content: space-between; }
+        .service-no { color: #7b7e74; font: 11px var(--mono); }
+        .service-icon { width: 34px; height: 34px; display: grid; place-items: center; color: var(--ink); background: var(--lime); font: 15px var(--mono); }
+        .service h3 { margin: 30px 0 9px; font-size: 18px; font-weight: 700; }
+        .service p { max-width: 295px; margin: 0; color: #70736b; font-size: 12px; line-height: 1.85; }
+        .service-foot { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 13px; border-top: 1px solid rgba(23, 26, 22, .14); color: #76796f; font: 9px var(--mono); }
+        .fit { background: #1e221c; }
+        .fit-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 95px; align-items: start; }
+        .fit-aside { position: sticky; top: 40px; }
+        .fit-aside p { max-width: 330px; margin: 22px 0 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+        .fit-list { border-top: 1px solid var(--line); }
+        .fit-row { display: grid; grid-template-columns: 45px 1fr 30px; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+        .fit-row .num { color: var(--coral); font: 11px var(--mono); }
+        .fit-row strong { display: block; font-size: 17px; }
+        .fit-row p { margin: 5px 0 0; color: var(--muted); font-size: 11px; line-height: 1.75; }
+        .fit-row .arrow { color: var(--lime); font: 17px var(--mono); }
+        .workflow { position: relative; overflow: hidden; background: var(--lime); color: var(--ink); }
+        .workflow .eyebrow { color: #45591a; }
+        .workflow .section-intro { color: #49503b; }
+        .workflow h2 em { color: #6c7c29; }
+        .steps { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgba(23, 26, 22, .32); }
+        .step { min-height: 194px; padding: 19px 17px 0 0; border-right: 1px solid rgba(23, 26, 22, .25); }
+        .step + .step { padding-left: 19px; }
+        .step:last-child { border-right: 0; }
+        .step-num { font: 11px var(--mono); }
+        .step h3 { margin: 43px 0 8px; font-size: 17px; }
+        .step p { max-width: 165px; margin: 0; color: #50553f; font-size: 11px; line-height: 1.8; }
+        .faq { background: var(--paper); color: var(--ink); }
+        .faq .eyebrow { color: #526a18; }
+        .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 92px; }
+        .faq-list { border-top: 1px solid rgba(23, 26, 22, .24); }
+        details { border-bottom: 1px solid rgba(23, 26, 22, .2); }
+        summary { min-height: 67px; display: flex; align-items: center; justify-content: space-between; gap: 18px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 700; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; color: #62791d; font: 21px var(--mono); }
+        details[open] summary::after { content: '-'; }
+        details p { max-width: 570px; margin: 0; padding: 0 30px 20px 0; color: #6d7068; font-size: 12px; line-height: 1.9; }
+        .contact { position: relative; overflow: hidden; padding: 104px 0 82px; background: #20251d; }
+        .contact::after { position: absolute; top: 26px; right: -22px; content: 'SHAN LIANG'; color: rgba(242, 240, 232, .035); font: 112px var(--mono); white-space: nowrap; pointer-events: none; }
+        .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; }
+        .contact h2 { max-width: 690px; font-size: clamp(42px, 5.6vw, 69px); }
+        .contact h2 em { color: var(--coral); }
+        .contact-copy { max-width: 400px; margin: 22px 0 0; color: #b2b6ac; font-size: 13px; line-height: 1.9; }
+        .contact-box { padding: 24px; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+        .contact-box label { display: block; margin-bottom: 12px; color: var(--lime); font: 10px var(--mono); }
+        .contact-box textarea { width: 100%; min-height: 116px; resize: vertical; padding: 13px; color: var(--paper); background: #171a16; border: 1px solid var(--line); outline: none; font-size: 12px; line-height: 1.8; }
+        .contact-box textarea:focus { border-color: var(--lime); }
+        .contact-box textarea::placeholder { color: #777c71; }
+        .contact-box .button-primary { width: 100%; margin-top: 12px; border: 0; cursor: pointer; }
+        .copy-status { min-height: 18px; margin: 10px 0 0; color: var(--lime); font-size: 11px; }
+        .footer { padding: 22px 0; color: #969a90; border-top: 1px solid var(--line); font-size: 10px; }
+        .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .footer-name { color: #d7d9d2; }
+        .footer-meta { font: 9px var(--mono); }
+        @media (max-width: 900px) {
+            .shell { width: min(100% - 48px, 680px); }
+            .nav { min-height: 72px; }
+            .nav-links { gap: 18px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .hero { min-height: auto; padding: 137px 0 58px; }
+            .hero-grid { grid-template-columns: 1fr .8fr; gap: 22px; }
+            h1 { font-size: clamp(43px, 7vw, 62px); }
+            .visual { height: 405px; }
+            .visual-index { width: 102px; }
+            .visual-sticker { width: 112px; height: 112px; }
+            .visual-sticker strong { font-size: 14px; }
+            .fit-layout, .faq-grid { grid-template-columns: 1fr; gap: 38px; }
+            .fit-aside { position: static; }
+            .contact-grid { gap: 36px; }
+        }
+        @media (max-width: 620px) {
+            .shell { width: calc(100% - 36px); }
+            .nav { min-height: 66px; }
+            .brand-name { font-size: 14px; }
+            .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 16px 18px 20px; background: #1e221c; border-bottom: 1px solid var(--line); }
+            .nav-links.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+            .nav-links a:not(.nav-cta) { display: block; padding: 14px 2px; border-bottom: 1px solid var(--line); }
+            .nav-cta { justify-content: space-between; margin-top: 12px; }
+            .menu-toggle { display: grid; place-items: center; font-size: 18px; }
+            .hero { padding: 117px 0 43px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+            h1 { max-width: 450px; margin-top: 19px; font-size: clamp(42px, 12vw, 58px); }
+            .hero-lead { max-width: 390px; font-size: 13px; }
+            .hero-actions { gap: 17px; margin-top: 25px; }
+            .button-primary { min-height: 48px; gap: 17px; padding-inline: 14px; }
+            .hero-note { margin-top: 27px; }
+            .visual { width: calc(100% - 8px); height: min(104vw, 420px); margin-right: 8px; }
+            .visual-photo { inset: 0 17px 18px 14px; }
+            .visual-sticker { left: -5px; width: 98px; height: 98px; padding: 12px; }
+            .visual-index { top: 16px; right: -1px; width: 94px; padding: 12px; }
+            .visual-index b { font-size: 20px; }
+            .hero-meta { bottom: 0; }
+            .hero::after { right: -150px; font-size: 50px; }
+            .ticker-track { min-height: 45px; justify-content: flex-start; gap: 18px; padding-left: 18px; font-size: 9px; }
+            .ticker-track span:nth-child(n+8) { display: none; }
+            .section-pad { padding: 77px 0; }
+            .section-head { align-items: start; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+            h2 { margin-top: 13px; font-size: 37px; }
+            .section-intro { font-size: 12px; }
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .service { min-height: 220px; padding: 17px 14px; }
+            .service h3 { margin-top: 23px; font-size: 15px; }
+            .service p { font-size: 11px; }
+            .service-foot { margin-top: 18px; font-size: 8px; }
+            .service-icon { width: 29px; height: 29px; }
+            .fit-layout { gap: 30px; }
+            .fit-row { grid-template-columns: 30px 1fr 20px; gap: 12px; padding: 19px 0; }
+            .fit-row strong { font-size: 15px; }
+            .fit-row p { font-size: 10px; }
+            .steps { grid-template-columns: 1fr; }
+            .step, .step + .step { min-height: auto; display: grid; grid-template-columns: 36px 1fr 20px; align-items: start; gap: 12px; padding: 17px 0; border-right: 0; border-bottom: 1px solid rgba(23, 26, 22, .23); }
+            .step:last-child { border-bottom: 0; }
+            .step h3 { margin: 0; font-size: 15px; }
+            .step p { grid-column: 2; max-width: none; }
+            .faq-grid { gap: 27px; }
+            summary { font-size: 12px; }
+            .contact { padding: 75px 0 46px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+            .contact h2 { font-size: 45px; }
+            .contact-box { padding: 17px; }
+            .contact::after { top: 13px; font-size: 59px; }
+            .footer-inner { align-items: start; flex-direction: column; gap: 8px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <nav class="nav shell" aria-label="主导航">
+            <a class="brand" href="#top" aria-label="闪量传媒首页">
+                <span class="brand-mark">闪</span>
+                <span><span class="brand-name">闪量传媒</span><span class="brand-sub">SHAN LIANG MEDIA / SUZHOU</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#services">服务内容</a>
+                <a href="#for-who">适合谁</a>
+                <a href="#process">合作流程</a>
+                <a class="nav-cta" href="#contact">聊聊你的账号 <span>↗</span></a>
+            </div>
+            <button class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links">☰</button>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="shell hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow">SUZHOU · JIANGSU · ZHEJIANG · SHANGHAI</div>
+                    <h1>让好生意，<br>被更多人<em>看见。</em></h1>
+                    <p class="hero-lead">从账号定位到每一条视频的落地，闪量传媒陪江浙沪实体店与创业 IP，把真实的生意日常，做成持续生长的内容。</p>
+                    <div class="hero-actions">
+                        <a class="button-primary" href="#contact">聊聊你的账号 <span>↗</span></a>
+                        <a class="text-link" href="#services">看看我们做什么 <span>↓</span></a>
+                    </div>
+                    <div class="hero-note"><span class="note-rule"></span>抖音全链路代运营 · 苏州出发，服务江浙沪</div>
+                </div>
+                <figure class="visual" aria-label="本地商业内容拍摄现场">
+                    <div class="visual-bracket"></div>
+                    <div class="visual-photo">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="团队围绕桌面协作讨论内容创意" fetchpriority="high">
+                        <div class="photo-caption"><span>ON SET / LOCAL STORIES</span><span class="recording">REC</span></div>
+                    </div>
+                    <div class="visual-index"><b>从 0 到 1</b><span>CONTENT, WITH A PLAN</span></div>
+                    <div class="visual-sticker"><span>让每一次表达</span><strong>都离生意<br>更近一点</strong><span>SL / 01—26</span></div>
+                    <span class="hero-meta">内容策划 · 实地拍摄 · 长期运营</span>
+                </figure>
+            </div>
+        </section>
+
+        <div class="ticker" aria-label="服务关键词">
+            <div class="ticker-track"><span>账号定位</span><span>✳</span><span>选题策划</span><span>✳</span><span>真实拍摄</span><span>✳</span><span>内容运营</span><span>✳</span><span>复盘迭代</span><span>✳</span><span>本地生意的长期伙伴</span></div>
+        </div>
+
+        <section class="services section-pad" id="services">
+            <div class="shell">
+                <div class="section-head">
+                    <div><div class="eyebrow">WHAT WE DO / 全链路服务</div><h2>不止拍视频，<br>而是把<em>每一步</em>做好。</h2></div>
+                    <p class="section-intro">一个团队，从策略走到执行。围绕你的生意阶段与实际资源，搭建能持续更新的内容运营节奏。</p>
+                </div>
+                <div class="service-grid">
+                    <article class="service"><div class="service-top"><span class="service-no">01 / STRATEGY</span><span class="service-icon">⌖</span></div><h3>账号定位</h3><p>梳理品牌优势、目标客群与内容差异，明确账号的人设、表达方式和经营方向。</p><div class="service-foot"><span>品牌梳理 · 人设搭建</span><span>→</span></div></article>
+                    <article class="service"><div class="service-top"><span class="service-no">02 / IDEATION</span><span class="service-icon">✳</span></div><h3>选题策划</h3><p>结合行业、门店场景与用户关心的问题，建立清晰、可执行的选题规划。</p><div class="service-foot"><span>月度选题 · 内容规划</span><span>→</span></div></article>
+                    <article class="service"><div class="service-top"><span class="service-no">03 / SCRIPT</span><span class="service-icon">≋</span></div><h3>脚本创作</h3><p>把专业知识、产品特色和创业故事，写成适合短视频节奏的表达脚本。</p><div class="service-foot"><span>口播脚本 · 情景创意</span><span>→</span></div></article>
+                    <article class="service"><div class="service-top"><span class="service-no">04 / PRODUCTION</span><span class="service-icon">◉</span></div><h3>现场拍摄</h3><p>走进门店与工作现场，捕捉真实的人、产品和服务细节，让内容有现场感。</p><div class="service-foot"><span>拍摄执行 · 场景调度</span><span>→</span></div></article>
+                    <article class="service"><div class="service-top"><span class="service-no">05 / POST</span><span class="service-icon">▤</span></div><h3>剪辑包装</h3><p>完成剪辑、字幕、音乐与封面包装，统一账号视觉与内容观看体验。</p><div class="service-foot"><span>后期制作 · 视觉统一</span><span>→</span></div></article>
+                    <article class="service"><div class="service-top"><span class="service-no">06 / OPERATIONS</span><span class="service-icon">↗</span></div><h3>发布与复盘</h3><p>协助内容发布与账号维护，定期复盘数据表现，找到下一轮值得验证的方向。</p><div class="service-foot"><span>发布运营 · 数据复盘</span><span>→</span></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="fit section-pad" id="for-who">
+            <div class="shell fit-layout">
+                <div class="fit-aside"><div class="eyebrow">WHO WE WORK WITH / 服务对象</div><h2>你的下一步，<br>从<em>讲清楚</em>开始。</h2><p>我们关注真实的经营现场，也尊重每个创作者的表达。无论你刚准备起步，还是想让内容运营变得更有章法，都可以从一次沟通开始。</p></div>
+                <div class="fit-list">
+                    <div class="fit-row"><span class="num">01</span><div><strong>江浙沪实体门店经营者</strong><p>餐饮、零售、生活服务与本地品牌，希望用内容呈现门店特色，拓展线上触达。</p></div><span class="arrow">↗</span></div>
+                    <div class="fit-row"><span class="num">02</span><div><strong>正在起步的个人 IP</strong><p>有专业、有经验、有故事，想建立清晰定位并持续输出内容的创业者与主理人。</p></div><span class="arrow">↗</span></div>
+                    <div class="fit-row"><span class="num">03</span><div><strong>需要稳定内容产出的团队</strong><p>已有账号基础，希望梳理流程、提升内容一致性与团队执行效率的品牌方。</p></div><span class="arrow">↗</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow section-pad" id="process">
+            <div class="shell">
+                <div class="section-head"><div><div class="eyebrow">HOW WE WORK / 合作流程</div><h2>从第一次沟通，<br>到<em>持续变好。</em></h2></div><p class="section-intro">先理解生意，再进入内容。每一步都有对齐、有交付，也有回看和调整。</p></div>
+                <div class="steps">
+                    <article class="step"><span class="step-num">01 / LISTEN</span><div><h3>了解现状</h3><p>沟通品牌、目标、团队与实际经营需求。</p></div></article>
+                    <article class="step"><span class="step-num">02 / PLAN</span><div><h3>制定方案</h3><p>明确账号方向、内容规划与协作方式。</p></div></article>
+                    <article class="step"><span class="step-num">03 / CREATE</span><div><h3>策划制作</h3><p>选题、脚本、拍摄与剪辑按计划推进。</p></div></article>
+                    <article class="step"><span class="step-num">04 / PUBLISH</span><div><h3>发布运营</h3><p>配合账号节奏发布，维护内容日常。</p></div></article>
+                    <article class="step"><span class="step-num">05 / REVIEW</span><div><h3>复盘迭代</h3><p>回看内容表现，讨论下一阶段的优化。</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq section-pad" id="faq">
+            <div class="shell faq-grid">
+                <div><div class="eyebrow">GOOD TO KNOW / 常见问题</div><h2>合作前，<br>先聊<em>清楚。</em></h2></div>
+                <div class="faq-list">
+                    <details><summary>合作前需要准备什么？</summary><p>不需要准备复杂材料。可以先想一想目前的经营重点、希望通过短视频解决的问题，以及已有的账号或内容；没有账号也可以从零开始聊。</p></details>
+                    <details><summary>服务可以按需组合吗？</summary><p>可以。具体服务范围、执行节奏与协作方式，会根据账号阶段、团队情况和实际需求沟通确认，再形成清晰的合作方案。</p></details>
+                    <details><summary>你们服务哪些地区？</summary><p>公司位于苏州，主要面向江浙沪地区的实体门店经营者与个人 IP 创业者。拍摄安排与服务形式可根据项目情况沟通。</p></details>
+                    <details><summary>多久能看到运营效果？</summary><p>内容运营需要结合行业、基础和执行节奏持续观察，不同账号的表现会有差异。我们会通过阶段复盘共同判断方向，不承诺固定结果或单条内容表现。</p></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="shell contact-grid">
+                <div><div class="eyebrow">START A CONVERSATION / 商务合作</div><h2>你有好生意，<br>我们来帮你<em>表达。</em></h2><p class="contact-copy">写下你的行业、所在城市和想解决的问题，复制合作需求摘要后，通过你常用的联系方式发给我们。闪量传媒期待认识你。</p></div>
+                <form class="contact-box" id="inquiry-form">
+                    <label for="inquiry">YOUR PROJECT / 简单介绍一下</label>
+                    <textarea id="inquiry" name="inquiry" placeholder="例如：苏州餐饮门店，想从零开始做抖音，重点介绍招牌菜和主理人故事……" required></textarea>
+                    <button class="button-primary" type="submit">复制合作需求摘要 <span>↗</span></button>
+                    <p class="copy-status" id="copy-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><div class="shell footer-inner"><span class="footer-name">苏州闪量互动文化传媒有限公司</span><span>让好生意，被更多人看见。</span><span class="footer-meta">SHAN LIANG MEDIA · SUZHOU</span></div></footer>
+
+    <script>
+        const menuButton = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('#nav-links');
+        menuButton.addEventListener('click', () => {
+            const isOpen = navigation.classList.toggle('is-open');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? '关闭导航菜单' : '打开导航菜单');
+            menuButton.textContent = isOpen ? '×' : '☰';
+        });
+        navigation.addEventListener('click', (event) => {
+            if (event.target.closest('a')) {
+                navigation.classList.remove('is-open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', '打开导航菜单');
+                menuButton.textContent = '☰';
+            }
+        });
+        document.querySelector('#inquiry-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const message = `苏州闪量传媒合作咨询\n${document.querySelector('#inquiry').value.trim()}`;
+            const status = document.querySelector('#copy-status');
+            try {
+                await navigator.clipboard.writeText(message);
+                status.textContent = '已复制。通过你的常用联系方式发送给闪量传媒即可。';
+            } catch {
+                const field = document.querySelector('#inquiry');
+                field.focus();
+                field.select();
+                status.textContent = '浏览器暂不支持自动复制，需求文字已选中，可手动复制。';
+            }
+        });
+    </script>
+</body>
+</html>
